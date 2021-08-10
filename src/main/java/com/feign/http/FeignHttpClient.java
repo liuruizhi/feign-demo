@@ -12,9 +12,12 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author liuruizhi
  * @Date 2021/8/10
  **/
-@FeignClient(value = "localhost")
+@FeignClient(url = "localhost", name = "test")
 public interface FeignHttpClient {
 
-    @RequestMapping(method = RequestMethod.GET)
-    String get(String sleep, int time);
+    @RequestMapping(method = RequestMethod.GET, value = "get")
+    String get(@RequestParam("sleep") String sleep, @RequestParam("time") int time);
+
+    @RequestMapping(method = RequestMethod.GET, value = "get2")
+    String get2(@RequestParam("sleep") String sleep, @RequestParam("time") int time);
 }

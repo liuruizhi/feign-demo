@@ -22,7 +22,7 @@ public class FeignHttpClientTest {
 
     @Test
     public void httpTest() {
-        System.out.println("test");
         feignHttpClient.get("sleep", 10);
+        feignHttpClient.get2("sleep", 10);
     }
 }
